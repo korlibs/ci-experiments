@@ -1,0 +1,18 @@
+name: Add issues to korlibs project
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v960fbad431afda394cfcf8743445e741acd19e85
+        with:
+          # You can target a repository in a different organization
+          # to the issue
+          project-url: https://github.com/orgs/korlibs/projects/19
+          github-token: ${{ secrets.GITHUB_TOKEN }}
